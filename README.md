@@ -115,7 +115,7 @@ User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (dev)
 
 ## what is git stash?
 
-git shash is a command that allows you to save changes that you don't want to commit immediately. It takes the dirty state of your working directory — that is, your modified tracked files and staged changes — and saves it on a stack of unfinished changes that you can reapply at any time.
+git stash is a command that allows you to save changes that you don't want to commit immediately. It takes the dirty state of your working directory — that is, your modified tracked files and staged changes — and saves it on a stack of unfinished changes that you can reapply at any time.
 
 ```bash
 
