@@ -282,3 +282,103 @@ User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
 
 
 ```
+
+
+
+
+
+## Git Bundle 2
+
+### Exercise 1
+
+```bash
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git branch ft/bundle-2
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ ls
+about.html  home.html  index.html  style.css
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ touch services.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git checkout ft/bundle-2
+Switched to branch 'ft/bundle-2'
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ touch services.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ git status
+On branch ft/bundle-2
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        services.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ git add services.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ git status
+On branch ft/bundle-2
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   services.html
+
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ git commit -m "added the services.html page"
+[ft/bundle-2 3f35f55] added the services.html page
+ 1 file changed, 10 insertions(+)
+ create mode 100644 services.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ git push
+fatal: The current branch ft/bundle-2 has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin ft/bundle-2
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ git push -u ft/bundle-2
+fatal: 'ft/bundle-2' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ ^C
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ ^[[200~git push --set-upstream origin ft/bundle-2
+bash: $'\E[200~git': command not found
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ git push -u origin ft/bundle-2
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 402 bytes | 402.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'ft/bundle-2' on GitHub by visiting:
+remote:      https://github.com/HIRWA13/Git-Exercises/pull/new/ft/bundle-2
+remote:
+To https://github.com/HIRWA13/Git-Exercises.git
+ * [new branch]      ft/bundle-2 -> ft/bundle-2
+branch 'ft/bundle-2' set up to track 'origin/ft/bundle-2'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+
+```
