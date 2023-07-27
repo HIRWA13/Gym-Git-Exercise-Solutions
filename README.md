@@ -289,6 +289,7 @@ User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
 
 ## Git Bundle 2
 
+
 ### Exercise 1
 
 ```bash
@@ -380,5 +381,320 @@ To https://github.com/HIRWA13/Git-Exercises.git
 branch 'ft/bundle-2' set up to track 'origin/ft/bundle-2'.
 
 User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+
+```
+
+
+### Exercise 2
+
+<b>git diff:</b> git diff command is used to show the changes between the working tree and the index or a tree, changes between the index and a tree, changes between two trees, changes between one branch and another branch.
+
+```bash
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git branch ft/service-redesign
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git checkout ft/service-redesign
+Switched to branch 'ft/service-redesign'
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ ls
+about.html  home.html  index.html  style.css
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git checkout ft/bundle
+error: pathspec 'ft/bundle' did not match any file(s) known to git
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git branch
+  dev
+  ft/bundle-2
+  ft/service-redesign
+* main
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git checkout ft/bundle-2
+Switched to branch 'ft/bundle-2'
+Your branch is up to date with 'origin/ft/bundle-2'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ ls
+about.html  home.html  index.html  services.html  style.css
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/bundle-2)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git merge ft/bundle-2
+Updating 900648a..3f35f55
+Fast-forward
+ services.html | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+ create mode 100644 services.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ ls
+about.html  home.html  index.html  services.html  style.css
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git checkout ft/service-redesign
+Switched to branch 'ft/service-redesign'
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ ls
+about.html  home.html  index.html  style.css
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git merge main
+Updating 900648a..3f35f55
+Fast-forward
+ services.html | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+ create mode 100644 services.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ ls
+about.html  home.html  index.html  services.html  style.css
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git status
+On branch ft/service-redesign
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   services.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git status
+On branch ft/service-redesign
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   services.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git add sercices.html
+fatal: pathspec 'sercices.html' did not match any files
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git add services.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git commit -m "modified the services.html page"
+[ft/service-redesign 8bad055] modified the services.html page
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git push -u ft/service-redisigned
+fatal: 'ft/service-redisigned' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git push -u origin ft/service-redisigned
+error: src refspec ft/service-redisigned does not match any
+error: failed to push some refs to 'https://github.com/HIRWA13/Git-Exercises.git
+'
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git push
+fatal: The current branch ft/service-redesign has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin ft/service-redesign
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ ^C
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git push --set-upstream origin ft/service-redesign
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (14/14), 1.55 KiB | 794.00 KiB/s, done.
+Total 14 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), done.
+remote:
+remote: Create a pull request for 'ft/service-redesign' on GitHub by visiting:
+remote:      https://github.com/HIRWA13/Git-Exercises/pull/new/ft/service-redesi
+gn
+remote:
+To https://github.com/HIRWA13/Git-Exercises.git
+ * [new branch]      ft/service-redesign -> ft/service-redesign
+branch 'ft/service-redesign' set up to track 'origin/ft/service-redesign'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   services.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git commit -m "changes to the services.html"
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   services.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git add services.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git commit -m "changes to the services.html"
+[main 35dd828] changes to the services.html
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git push
+To https://github.com/HIRWA13/Git-Exercises.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/HIRWA13/Git-Exercises.git
+'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 644 bytes | 128.00 KiB/s, done.
+From https://github.com/HIRWA13/Git-Exercises
+   900648a..bd7250b  main       -> origin/main
+Merge made by the 'ort' strategy.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git push
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 522 bytes | 522.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 2 local objects.
+To https://github.com/HIRWA13/Git-Exercises.git
+   bd7250b..88b2400  main -> main
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git checkout ft/service-redesign
+Switched to branch 'ft/service-redesign'
+Your branch is up to date with 'origin/ft/service-redesign'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git diff
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git diff main
+diff --git a/services.html b/services.html
+index a66d9e8..9885513 100644
+--- a/services.html
++++ b/services.html
+@@ -4,7 +4,7 @@
+ <link rel="stylesheet" href="style.css">
+ </head>
+ </body>
+-<h1>Welcome to Our Services Page which is cool</h1>
+-<p>secret servicesssss</p>
++<h1>Welcome to Our Services Page and it is awesome</h1>
++<p>We have a variety of services including: plumbing, shoping and many more...!
+</p>
+ </body>
+ </html>
+\ No newline at end of file
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/service-redesign)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git merge ft/service-redesign
+Auto-merging services.html
+CONFLICT (content): Merge conflict in services.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main|MERGING)
+$ git add service.html
+fatal: pathspec 'service.html' did not match any files
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main|MERGING)
+$ ls
+about.html  home.html  index.html  services.html  style.css
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main|MERGING)
+$ git add services.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main|MERGING)
+$ git commit -m "resolved the conflicts"
+[main eff90ca] resolved the conflicts
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 350 bytes | 350.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/HIRWA13/Git-Exercises.git
+   88b2400..eff90ca  main -> main
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$
 
 ```
