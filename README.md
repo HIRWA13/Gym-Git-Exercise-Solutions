@@ -698,3 +698,336 @@ User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
 $
 
 ```
+
+## Git Bundle 3
+
+
+### Exercise 1
+
+```bash
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ ls
+about.html  home.html  index.html  services.html  style.css
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git branch
+  dev
+  ft/bundle-2
+  ft/service-redesign
+* main
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git checkout -b ft/team-page
+Switched to a new branch 'ft/team-page'
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ touch team.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ git status
+On branch ft/team-page
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        team.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ git add .
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ git commit -m "added the team page"
+[ft/team-page ee801c8] added the team page
+ 1 file changed, 10 insertions(+)
+ create mode 100644 team.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ git push
+fatal: The current branch ft/team-page has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin ft/team-page
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ ^C
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ ^[[200~git push --set-upstream origin ft/team-page
+bash: $'\E[200~git': command not found
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ git push --set-upstream origin ft/team-page
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 410 bytes | 410.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'ft/team-page' on GitHub by visiting:
+remote:      https://github.com/HIRWA13/Git-Exercises/pull/new/ft/team-page
+remote:
+To https://github.com/HIRWA13/Git-Exercises.git
+ * [new branch]      ft/team-page -> ft/team-page
+branch 'ft/team-page' set up to track 'origin/ft/team-page'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (main)
+$ git checkout -b ft/contact-page
+Switched to a new branch 'ft/contact-page'
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$ git checkout ft/team-page
+Switched to branch 'ft/team-page'
+Your branch is up to date with 'origin/ft/team-page'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ git log --oneline
+ee801c8 (HEAD -> ft/team-page, origin/ft/team-page) added the team page
+eff90ca (origin/main, main, ft/contact-page) resolved the conflicts
+88b2400 Merge branch 'main' of https://github.com/HIRWA13/Git-Exercises
+35dd828 changes to the services.html
+8bad055 (origin/ft/service-redesign, ft/service-redesign) modified the services.html page
+bd7250b Merge pull request #1 from HIRWA13/ft/bundle-2
+3f35f55 (origin/ft/bundle-2, ft/bundle-2) added the services.html page
+900648a added home.html and about.html
+72e29c0 (dev) git Exercise 1
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ ^C
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ git checkout ft/contact-page
+Switched to branch 'ft/contact-page'
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$ git checkout ft/team-page
+Switched to branch 'ft/team-page'
+Your branch is up to date with 'origin/ft/team-page'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ git log --oneline
+ee801c8 (HEAD -> ft/team-page, origin/ft/team-page) added the team page
+eff90ca (origin/main, main, ft/contact-page) resolved the conflicts
+88b2400 Merge branch 'main' of https://github.com/HIRWA13/Git-Exercises
+35dd828 changes to the services.html
+8bad055 (origin/ft/service-redesign, ft/service-redesign) modified the services.html page
+bd7250b Merge pull request #1 from HIRWA13/ft/bundle-2
+3f35f55 (origin/ft/bundle-2, ft/bundle-2) added the services.html page
+900648a added home.html and about.html
+72e29c0 (dev) git Exercise 1
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/team-page)
+$ git checkout ft/contact-page
+Switched to branch 'ft/contact-page'
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$ git cherry-pick ee801c8
+[ft/contact-page f8d755b] added the team page
+ Date: Fri Jul 28 16:04:50 2023 +0200
+ 1 file changed, 10 insertions(+)
+ create mode 100644 team.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$ git log --oneline
+f8d755b (HEAD -> ft/contact-page) added the team page
+eff90ca (origin/main, main) resolved the conflicts
+88b2400 Merge branch 'main' of https://github.com/HIRWA13/Git-Exercises
+35dd828 changes to the services.html
+8bad055 (origin/ft/service-redesign, ft/service-redesign) modified the services.html page
+bd7250b Merge pull request #1 from HIRWA13/ft/bundle-2
+3f35f55 (origin/ft/bundle-2, ft/bundle-2) added the services.html page
+900648a added home.html and about.html
+72e29c0 (dev) git Exercise 1
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$ touch contact.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$ git status
+On branch ft/contact-page
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        contact.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$ git add --all
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$ git commit -m "added the contact us page"
+[ft/contact-page a04e25a] added the contact us page
+ 1 file changed, 10 insertions(+)
+ create mode 100644 contact.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$ git push
+fatal: The current branch ft/contact-page has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin ft/contact-page
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$ ^C
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$  git push --set-upstream origin ft/contact-page
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 775 bytes | 775.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+remote:
+remote: Create a pull request for 'ft/contact-page' on GitHub by visiting:
+remote:      https://github.com/HIRWA13/Git-Exercises/pull/new/ft/contact-page
+remote:
+To https://github.com/HIRWA13/Git-Exercises.git
+ * [new branch]      ft/contact-page -> ft/contact-page
+branch 'ft/contact-page' set up to track 'origin/ft/contact-page'.
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$ git branch
+  dev
+  ft/bundle-2
+* ft/contact-page
+  ft/service-redesign
+  ft/team-page
+  main
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/contact-page)
+$ git checkout -b ft/faq-page
+Switched to a new branch 'ft/faq-page'
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/faq-page)
+$ touch faq.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/faq-page)
+$ git status
+On branch ft/faq-page
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        faq.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/faq-page)
+$ git add .
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/faq-page)
+$ git commit -m "added the faq page"
+[ft/faq-page 8c75e15] added the faq page
+ 1 file changed, 10 insertions(+)
+ create mode 100644 faq.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/faq-page)
+$ git push --set-ipstream origin ft/faq-page
+error: unknown option `set-ipstream'
+usage: git push [<options>] [<repository> [<refspec>...]]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --repo <repository>   repository
+    --all                 push all branches
+    --branches            alias of --all
+    --mirror              mirror all refs
+    -d, --delete          delete refs
+    --tags                push tags (can't be used with --all or --branches or --mirror)
+    -n, --dry-run         dry run
+    --porcelain           machine-readable output
+    -f, --force           force updates
+    --force-with-lease[=<refname>:<expect>]
+                          require old value of ref to be at this value
+    --force-if-includes   require remote updates to be integrated locally
+    --recurse-submodules (check|on-demand|no)
+                          control recursive pushing of submodules
+    --thin                use thin pack
+    --receive-pack <receive-pack>
+                          receive pack program
+    --exec <receive-pack>
+                          receive pack program
+    -u, --set-upstream    set upstream for git pull/status
+    --progress            force progress reporting
+    --prune               prune locally removed refs
+    --no-verify           bypass pre-push hook
+    --follow-tags         push missing but relevant tags
+    --signed[=(yes|no|if-asked)]
+                          GPG sign the push
+    --atomic              request atomic transaction on remote side
+    -o, --push-option <server-specific>
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/faq-page)
+$ ^C
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/faq-page)
+$ git push --set-upstream origin ft/faq-page
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 406 bytes | 406.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'ft/faq-page' on GitHub by visiting:
+remote:      https://github.com/HIRWA13/Git-Exercises/pull/new/ft/faq-page
+remote:
+To https://github.com/HIRWA13/Git-Exercises.git
+ * [new branch]      ft/faq-page -> ft/faq-page
+branch 'ft/faq-page' set up to track 'origin/ft/faq-page'.
+
+
+
+[ft/faq-page f7fa169] Revert "added the team page"
+ 1 file changed, 10 deletions(-)
+ delete mode 100644 team.html
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/faq-page)
+$ git add --all
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/faq-page)
+$ git commit -m "reverted the changes from team-page commit"
+On branch ft/faq-page
+Your branch is ahead of 'origin/ft/faq-page' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/faq-page)
+$ git push
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 279 bytes | 279.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/HIRWA13/Git-Exercises.git
+   8c75e15..f7fa169  ft/faq-page -> ft/faq-page
+
+User@DESKTOP-72SEU4G MINGW64 ~/projects/GitExercises (ft/faq-page)
+$
+```
